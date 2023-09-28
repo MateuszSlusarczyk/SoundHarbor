@@ -7,8 +7,13 @@ interface IUser extends DefaultUser {
 declare module "next-auth" {
     interface User extends IUser {}
     interface Session {
-        user?:User
-        access_token?: any
+        user:User
+        access_token: any
+        playlistId: any
+        trackId: any
+        podcastId: any
+        episodeId: any
+        userId: any
       }
       
     
