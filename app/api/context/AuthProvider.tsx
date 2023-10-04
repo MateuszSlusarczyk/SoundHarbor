@@ -1,17 +1,19 @@
 import Navbar from '@/app/components/Navbar'
 import Menu from '@/app/components/Menu'
-import { SessionProvider } from 'next-auth/react'
+import  SessionContext  from './SessionContext'
 import Home from '@/app/page'
 
-export default function AuthProvider({ children }: {
+export default async function AuthProvider({ children }: {
     children: React.ReactNode
-}) {
+}
+) {
+
     return (
-        <SessionProvider> 
+        <SessionContext > 
             <Navbar />
             <Menu />
             <Home />
             {children}
-        </SessionProvider>
+        </SessionContext>
     )
 }

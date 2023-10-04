@@ -14,14 +14,21 @@ const config: Config = {
       'quaternary': '#48A9A6',
       'quinary': '#D77D6E',
       'senary': '#1F1F22',
+
     },
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+    minWidth: {
+      '1/6': '16.666667%',
+      '1/3': '33.333333%',
     },
+    minHeight: {
+      '1/2': '50%',
+      '1/3': '33.333333%',
+    },
+    maxHeight: {
+      '1/2': '50%',
+      '1/3': '33.333333%',
+    },
+  
   },
   plugins: [],
 }
