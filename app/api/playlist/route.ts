@@ -5,11 +5,15 @@ import { NextResponse } from 'next/server';
 
 export const GET = async (req:any, res:any) => {
   const session = await getServerSession(authOptions);
-
-  console.log("123");
-  console.log(session?.access_token);
-  const response = await getUsersPlaylists(session?.access_token);
+  const { searchParams } = new URL(req.url);
+  const offset = searchParams.get('offset');
+  console.log(offset);
+  if(offset === null){
+    return NextResponse.json({items: []});
+  }
+  const response = await getUsersPlaylists(session?.access_token, offset);
   const {items} = await response.json();
+  
 
   return NextResponse.json({items});
 };

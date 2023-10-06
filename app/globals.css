@@ -23,3 +23,43 @@ body {
   height: 100%;
   color:white;
 }
+::-webkit-scrollbar {
+  width: 100%;
+}
+::-webkit-scrollbar-track
+{
+  background: #4B4B4E;
+}
+::-webkit-scrollbar-thumb
+{
+  background: #2E2E30;
+  border-radius:1rem;
+}
+::-webkit-scrollbar-thumb:hover
+{
+  background: #48A9A6;
+  transition: all 0.5s ease-in-out;
+}
+.no-scrollbar::-webkit-scrollbar{
+  display:none;
+}
+.RoundedSlider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.RoundedSlider::-webkit-slider-runnable-track {
+  height: 100%;
+}
+
+.RoundedSlider::-moz-range-track {
+  height: 100%;
+}
+.RoundedSlider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  background-color: #5cd5eb;
+  height: 100%;
+
+}

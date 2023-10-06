@@ -18,9 +18,9 @@ export default function Menu() {
         setIsSubMenu2Open(!isSubMenu2Open);
     }
     return (
-        <div className='h-full w-1/6 fixed bg-primary p-5' >
+        <div className=' w-full h-screen bg-primary p-5' >
             <div className='h-5' />
-            <nav className="w-full h-full  font-bold ">
+            <nav className="w-full h-full font-bold ">
                 <ul className='text-lg w-full h-full flex flex-col justify-evenly bg-senary rounded-md p-2 '>
                 <li className='flex flex-col transition-all duration-500 rounded-md'>
                     <p className='flex flex-row items-center rounded-md hover:bg-tertiary transition-all duration-500'>
