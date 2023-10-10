@@ -13,8 +13,13 @@ export async function POST(req: Request) {
       const tracks = items.tracks.map((item:any) => item.uri);
       const reponse2 = await addItemsToPlaylist(session?.access_token, session?.playlistId, tracks); // Pass the "name" field
       const items2 = await reponse2.json();
-      
-      return NextResponse.json(items2);
+      console.log(items2)
+      if(!items2.error){
+           return NextResponse.json(items2);
+      }
+      else{
+            return NextResponse.error();
+      }
     
 }
   

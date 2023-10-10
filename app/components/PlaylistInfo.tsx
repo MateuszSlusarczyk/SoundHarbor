@@ -5,7 +5,7 @@ export default function PodcastInfo() {
   const {data:session, update}=useSession()
   const [playlist, setPlaylist] = useState<any>(null);
   const [tracks, setTracks] = useState<any>([]);
-  const [error, setError] = useState<any>(null);
+  const [error, setError] = useState<any>(false);
   const getPlaylistDetails = async () => {
     try {
       const res = await fetch('/api/playlistInfo');
@@ -62,9 +62,14 @@ export default function PodcastInfo() {
           }),
         });
 
-        const data = await res.json();
-        if(data.status = 503){
+        
+        console.log(res)
+        if(res.status === 500){
           setError(true);
+          console.log("abc")
+        }
+        else{
+          setError(false);
         }
       }
       catch (error) {
@@ -92,8 +97,8 @@ export default function PodcastInfo() {
   
 if(error){
   return (
-    <div className='absolute top-10 z-0 h-screen p-4 w-5/6'>
-      <div className='width-full h-1/5 bg-primary rounded-md p-2 mb-4 flex'>
+    <div className='absolute top-10 z-0 h-screen p-4 w-full'>
+      <div className='w-full h-1/5 bg-primary rounded-md p-2 mb-4 flex'>
       <Image src={playlist?.images[0]?.url} width="125" height="125" alt="playlista" className='rounded-md h-36 mr-6 relative z-10' />
       <Image src={playlist?.images[0]?.url} width="145" height="145" alt="playlista" className='rounded-md h-36 mr-6 absolute z-0 blur-md' />
         <div className="flex flex-col items-start w-1/3 ">
@@ -119,14 +124,15 @@ if(error){
 }
 else{
   return (
-    <div className='absolute top-10 z-0 h-screen p-4 w-5/6'>
-      <div className='width-full h-1/5 bg-primary rounded-md p-2 mb-4 flex'>
+    <div className='absolute top-10 z-0 h-screen p-4 w-full'>
+      <div className='w-full h-1/5 bg-primary rounded-md p-2 mb-4 flex'>
       <Image src={playlist?.images[0]?.url} width="125" height="125" alt="playlista" className='rounded-md h-36 mr-6 relative z-10' />
       <Image src={playlist?.images[0]?.url} width="145" height="145" alt="playlista" className='rounded-md h-36 mr-6 absolute z-0 blur-md' />
         <div className="flex flex-col items-start w-1/3 ">
         <p className='font-bold text-center '>{playlist.name}</p>
         <p>{playlist.description}</p>
         <button className='w-1/3 h-1/4 bg-secondary rounded-md font-bold text-sm hover:bg-tertiary hover:h-1/3 hover:mt-2 hover:text-base hover:w-1/2 transition-all duration-500' onClick={ExpandPlaylist}>Rozszerz playliste</button>
+        
         </div>
       </div>
       <div className=' w-full h-4/6 p-1 bg-primary overflow-y-scroll rounded-md'>

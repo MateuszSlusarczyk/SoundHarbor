@@ -39,7 +39,7 @@ export default function Navbar(){
                             <Link href="/Zaawansowane" className='w-full flex justify-center  hover:bg-quaternary rounded-md transition-all duration-500'>Zaawansowane</Link>
                 </div>
                 </li>
-                <li className='w-3/12 flex h-full rounded-md hover:bg-tertiary hover:shadow-lg hover:shadow-tertiary transition duration-500'><Link href="Playlists" className='flex w-full justify-center items-center'>Playlisty</Link></li>
+                <li className='w-3/12 flex h-full rounded-md hover:bg-tertiary hover:shadow-lg hover:shadow-tertiary transition duration-500'><Link href="Playlists" className='flex w-full justify-center items-center'>Twoje Topki</Link></li>
                 <li className={`w-3/12 flex flex-col rounded-md justify-end items-center hover:bg-tertiary hover:shadow-lg hover:shadow-tertiary transition duration-500 ${isSubMenu1Open ? 'h-44 bg-tertiary ' : 'h-full'} `}>
                     <div className={`flex justify-center items-center ${isSubMenu1Open ? 'h-8' : 'h-full'}`}>
                     <Link href="" className=''>Konto</Link>
@@ -48,7 +48,7 @@ export default function Navbar(){
                     </button>
                     </div>
                     <div className={` ${isSubMenu1Open ? 'flex flex-col' : 'hidden'} rounded-md justify-center  bg-tertiary items-center w-full relative z-10`} style={{ transition: 'all 0.5s' }}>
-                            <Link href="" className='w-full flex justify-center  hover:bg-quaternary rounded-md transition-all duration-500' onClick={() => signIn("spotify", {scopes: "playlist-read-private"})}>Zaloguj Sie</Link>
+                            <Link href="" className='w-full flex justify-center  hover:bg-quaternary rounded-md transition-all duration-500' onClick={() => signIn("spotify")}>Zaloguj Sie</Link>
                             <Link href="" className='w-full flex justify-center   hover:bg-quaternary rounded-md transition-all duration-500' onClick={() => LogOut()}>Wyloguj Sie</Link>
                             <Link href="/UserPage" className='w-full flex justify-center  hover:bg-quaternary rounded-md transition-all duration-500'>Moje Dane</Link>
                     </div>

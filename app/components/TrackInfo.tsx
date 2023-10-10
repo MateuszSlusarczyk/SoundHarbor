@@ -47,7 +47,7 @@ export default function TrackInfo() {
       <div className=' w-full h-4/6 p-4 bg-primary overflow-y-scroll rounded-md flex justify-center items-center'>
         <div key={Track.name} className=' h-full w-full flex flex-col justify-center items-center bg-senary rounded-md p-2 mb-1 mt-1'>
           <div className='h-full w-full flex flex-row items-center justify-center'>
-            <div className='flex flex-row items-center justify-center h-full w-1/2 '>
+            <div className='flex flex-row items-center justify-center h-full md:w-1/2 sm:w-full '>
             <Image src={Track.album.images[0]?.url} width="300" height="0" alt="playlista" className='rounded-md m-1 h-1/2 w-1/3 relative z-10' />
             <div className='flex flex-col min-h-1/2 h-1/2'>
             <p className='font-bold'>Tytuł: {Track.name}</p>

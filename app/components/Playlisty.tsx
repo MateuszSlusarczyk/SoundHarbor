@@ -137,7 +137,7 @@ export default function Playlist() {
       <div className='flex flex-row h-full overflow-x-scroll '> 
       {tracks.map((item: any) => (
         <div className='overflow-scroll h-full min-w-1/6 flex flex-col items-center  bg-primary no-scrollbar p-1 pb-2 rounded-md mr-2 hover:bg-gradient-to-t from-quaternary from-0%  to-primary to-30% transition-all duration-500' data-value={item.id} onClick={PassTrack}>
-          <div className='h-3/4 w-1/2 flex justify-center items-center'>
+          <div className='h-3/4 md:w-1/2 sm:w-full flex justify-center items-center'>
             <Image src={item.album.images[0]?.url} width="100" height="100" alt="playlista" className='rounded-md h-3/4 w-full' />
           </div>
           <div className='h-1/4 items-center justify-center'>
@@ -154,7 +154,7 @@ export default function Playlist() {
       <div className='flex flex-row h-full overflow-x-scroll '> 
       {artists.map((item: any) => (
         <div className='overflow-scroll h-full min-w-1/6 flex flex-col items-center  bg-primary no-scrollbar p-1 pb-2 rounded-md mr-2 hover:bg-gradient-to-t from-quaternary from-0%  to-primary to-30% transition-all duration-500' data-value={item.id} onClick={PassArtist}>
-          <div className='h-3/4 w-1/2 flex justify-center items-center'>
+          <div className='h-3/4 md:w-1/2 sm:w-full flex justify-center items-center'>
             <Image src={item.images[0]?.url} width="100" height="100" alt="playlista" className='rounded-md h-3/4 w-full' />
           </div>
           <div className='h-1/4 items-center justify-center'>
@@ -171,7 +171,7 @@ export default function Playlist() {
       <div className='flex flex-row h-full overflow-x-scroll '> 
       {followedArtists.map((item: any) => (
         <div className='overflow-scroll h-full min-w-1/6 flex flex-col items-center  bg-primary no-scrollbar p-1 pb-2 rounded-md mr-2 hover:bg-gradient-to-t from-quaternary from-0%  to-primary to-30% transition-all duration-500' data-value={item.id} onClick={PassArtist}>
-          <div className='h-3/4 w-1/2 flex justify-center items-center'>
+          <div className='h-3/4 md:w-1/2 sm:w-full flex justify-center items-center'>
             <Image src={item.images[0]?.url} width="100" height="100" alt="playlista" className='rounded-md h-3/4 w-full' />
           </div>
           <div className='h-1/4 items-center justify-center'>

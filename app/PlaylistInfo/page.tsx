@@ -9,9 +9,6 @@ function MainPage() {
 
   return (
     <div className='h-full w-full flex font-sans' >
-    <div className='h-full w-1/6'>
-        <Menu />
-      </div>
       <div className='h-full w-full flex flex-col'>
       <PlaylistInfo/>
       <div className = "relative w-full h-10 right-0">
