@@ -28,7 +28,7 @@ export default function Navbar(){
                 <li className='w-3/12 flex h-full rounded-md justify-center items-center hover:bg-tertiary hover:shadow-lg hover:shadow-tertiary transition duration-500 '>  <Link href="/MainPage" className='flex w-full justify-center items-center'>Strona Główna</Link></li>
                 <li className={`w-3/12 h-full flex flex-col rounded-md justify-start items-center hover:bg-tertiary hover:shadow-lg hover:shadow-tertiary transition duration-500  `}>
                 <div className={`flex justify-center items-center ${isSubMenu2Open ? 'h-8' : 'h-full'}`}>
-                    <Link href="/Rekomendacje" className='flex w-full justify-center items-center'>Rekomendacje</Link>
+                    <Link href="/" className='flex w-full justify-center items-center'>Rekomendacje</Link>
                     <button onClick={ExpandMenu2} className='w-auto'>
                             <Image src={Rozwin} alt="Rozwin" className={` ${isSubMenu2Open ? 'rotate-90' : ''}`} style={{ transition: 'all 1s' }}  />
                     </button>
