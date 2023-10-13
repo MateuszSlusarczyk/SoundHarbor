@@ -1,11 +1,9 @@
-import { MongoClient, MongoClientOptions } from 'mongodb'
+
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next"
 import { authOptions } from '../auth/[...nextauth]/options';
 import { getRecommendationsGenre, getRecommendationsGenreBasic } from '@/lib/spotify';
 
-//const mongoClient = new MongoClient(process.env.MONGODB_URI as string, {
-//} as MongoClientOptions)
 
 export async function GET(req: any) { 
   const { searchParams } = new URL(req.url);
