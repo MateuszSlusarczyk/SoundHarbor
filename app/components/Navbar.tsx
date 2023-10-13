@@ -19,7 +19,7 @@ export default function Navbar(){
     }
     function LogOut(){
         signOut();
-
+        
     }
     return(
         <div className='bg-primary flex w-full h-10 justify-end right-0 p-1'>
