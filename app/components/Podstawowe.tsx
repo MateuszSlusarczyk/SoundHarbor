@@ -2,6 +2,11 @@ import { ChangeEvent, useState } from "react";
 import Image from 'next/image'
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
+
+type ResponseType = {
+  snapshot_id: string;
+  error: string;
+};
 export default function Zaawansowane(){
   const {data:session, update}=useSession()
     const [formValues, setFormValues] = useState({
@@ -30,7 +35,7 @@ export default function Zaawansowane(){
     const [isVisible18, setIsVisible18] = useState(false);
     const [isVisible19, setIsVisible19] = useState(false);
     const [isVisible20, setIsVisible20] = useState(false);
-
+    const [response2, setRes2] = useState<any>();
     
 
    
@@ -58,13 +63,11 @@ export default function Zaawansowane(){
               },
               body: JSON.stringify(""),
             });
-            console.log(res);
             const abc = await res.json();
+            console.log(abc)
+            setRes2(abc);
             if(res){
-              
               const playlistId = abc.items.id;
-              console.log("plaslist")
-              console.log(abc)
               const trackIds = response.tracks.map((track: any) => 
               track.track_id ? "spotify:track:" + track.track_id : "spotify:track:" + track.id);
               const res2 = await fetch("/api/addTracksToPlaylist", {
@@ -72,8 +75,9 @@ export default function Zaawansowane(){
                 headers: {
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ name: "Plejka", playlistId, trackIds }), // Include the "name" field
+                body: JSON.stringify({ name: "Plejka", playlistId, trackIds }), 
               });
+            
             }
  
       }
@@ -101,14 +105,11 @@ export default function Zaawansowane(){
         }
       }
     if(response){
-      console.log("abc")
-      console.log(response)
       return(
         <div className=' h-full p-4 w-full'>
-         <div className=' w-full h-4/6 p-1 bg-primary overflow-y-scroll rounded-md'>
+         <div className=' w-full h-full p-1 bg-primary overflow-y-scroll rounded-md'>
          {response.tracks.map((item: any) => (
           <div key={item.name} className=' h-16 w-full flex flex-row items-center bg-senary rounded-md mb-1 mt-1' data-value={item.id} onClick={PassTrack}>
- 
               <Image src={item.album.images[0]?.url} width="60" height="60" alt="playlista" className='rounded-md m-1' />
               <div className='flex flex-col'>
               <p className='font-bold'>{item.name}</p>
@@ -116,7 +117,14 @@ export default function Zaawansowane(){
               </div>
         </div>
          ))}
-         <button onClick={exportPlaylist}>Zapisz</button>
+         <button onClick={exportPlaylist} className="font-semibold">Zapisz</button>
+         {response2 == null
+            ? <></>
+            : response2.error
+              ? <p className="font-bold">Błąd podczas dodawania playlisty</p>
+              : <p className="font-bold">Poprawnie dodano playliste</p>
+          }
+         
       </div>
         </div>
     )

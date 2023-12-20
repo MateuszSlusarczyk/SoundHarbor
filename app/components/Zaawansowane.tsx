@@ -25,6 +25,7 @@ export default function Zaawansowane(){
        });
     const [loading, setLoading] = useState(false);
     const [response, setResponse] = useState<any>("");
+    const [response2, setRes2] = useState<any>();
     const PassTrack = async (e:any) => {
         if(session===null){
           throw new Error("Błąd dostępu do playlisty")
@@ -65,13 +66,10 @@ export default function Zaawansowane(){
                 },
                 body: JSON.stringify(""),
               });
-              console.log(res);
               const abc = await res.json();
+              setRes2(abc);
               if(res){
-                
                 const playlistId = abc.items.id;
-                console.log("plaslist")
-                console.log(abc)
                 const trackIds = response.tracks.map((track: any) => "spotify:track:" + track.id);
                 const res2 = await fetch("/api/addTracksToPlaylist", {
                   method: "POST",
@@ -595,11 +593,9 @@ export default function Zaawansowane(){
     )
 }
 else{
-   console.log("res")
-   console.log(response);
     return(
-        <div className='absolute top-10 z-0 h-full p-4 w-5/6'>
-         <div className=' w-full h-4/6 p-1 bg-primary overflow-y-scroll rounded-md'>
+        <div className='absolute top-10 z-0 h-full p-4 w-full'>
+         <div className=' w-full h-full p-1 bg-primary overflow-y-scroll rounded-md'>
         {response.tracks.map((item: any) => (
         <div key={item.id} className=' h-16 w-full flex flex-row  bg-senary rounded-md mb-1 mt-1' data-value={item.id} onClick={PassTrack}>
             <Image src={item.album.images[0]?.url} width="60" height="60" alt="playlista" className='rounded-md m-1' />
@@ -610,6 +606,12 @@ else{
         </div>
          ))}
          <button onClick={exportPlaylist}>Zapisz</button>
+         {response2 == null
+            ? <></>
+            : response2.error
+              ? <p className="font-bold">Błąd podczas dodawania playlisty</p>
+              : <p className="font-bold">Poprawnie dodano playliste</p>
+          }
       </div>
         </div>
     )

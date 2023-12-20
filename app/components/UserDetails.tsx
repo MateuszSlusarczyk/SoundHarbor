@@ -39,8 +39,8 @@ export default function UserDetails() {
     return (
         
         <div className=" top-10 h-full w-full ">
-            <div className="flex flex-row items-start justify-start h-full w-full"> 
-            <Image src={User.images[1]?.url} width="300" height="0" alt="playlista" className='rounded-md m-1 h-full  w-1/4' />
+            <div className="flex flex-row items-start justify-start h-full w-full p-2"> 
+            <Image src={User.images[1]?.url} width="300" height="0" alt="playlista" className='rounded-md m-1 min-h-full min-w-1/6' />
             <div className='flex flex-col'>
             <p><span className='font-bold'>Login:</span> {User.display_name}</p>
             <p><span className='font-bold'>Kraj:</span> {User.country}</p>
