@@ -61,7 +61,7 @@ export default function TrackInfo() {
             </div>
             <div className='w-full h-1/4 flex flex-row'>
             <div className='h-full w-1/4 flex flex-col items-center justify-center'>
-                <p className="font-bold">Akustyczność</p>
+                <p className="font-bold">Muzyka akustyczna</p>
                 <div className='bg-primary  w-1/2 h-1/6 rounded-full'>
                     <div style={{width: Details.acousticness*100 + "%"}} className='bg-secondary h-full rounded-full' ></div>
                 </div>
@@ -82,7 +82,7 @@ export default function TrackInfo() {
                 <p>{Details.energy}</p>
             </div>
             <div className='h-full w-1/4 flex flex-col items-center justify-center'>
-                <p className="font-bold">Instrumentalność</p>
+                <p className="font-bold">Muzyka instrumentalna</p>
                 <div className='bg-primary  w-1/2 h-1/6 rounded-full'>
                     <div style={{width: Details.instrumentalness*100 + "%"}} className='bg-secondary h-full rounded-full' ></div>
                 </div>
@@ -91,7 +91,7 @@ export default function TrackInfo() {
             </div>
             <div className='w-full h-1/4 flex flex-row'>
             <div className='h-full w-1/3 flex flex-col items-center justify-center'>
-                <p className="font-bold">Żywotność</p>
+                <p className="font-bold">Muzyka na żywo</p>
                 <div className='bg-primary  w-1/2 h-1/6 rounded-full'>
                     <div style={{width: Details.liveness*100 + "%"}} className='bg-secondary h-full rounded-full' ></div>
                 </div>

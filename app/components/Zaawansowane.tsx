@@ -140,7 +140,7 @@ export default function Zaawansowane(){
        <form className=" flex flex-col h-full" onSubmit={onSubmit}>
             <div className="flex flex-row w-full justify-center h-1/6">
                 <div className="flex flex-col w-1/3 mr-4   items-center">
-                <p className="font-bold text-2xl">Danceability</p>
+                <p className="font-bold text-2xl">Taneczność</p>
                 <div className="flex flex-row w-full h-1/3 justify-center">
                 <div className="w-1/3 bg-primary h-full rounded-full mr-4">
                     <input type="range"
@@ -194,7 +194,7 @@ export default function Zaawansowane(){
                 </div>
                 
                 <div className="flex flex-col w-1/3 mr-4 items-center">
-                <p className="font-bold text-2xl">Energy</p>
+                <p className="font-bold text-2xl">Energiczność</p>
                 <div className="flex flex-row w-full h-1/3 justify-center">
                 <div className="w-1/3 bg-primary h-full rounded-full mr-4">
                     <input type="range"
@@ -247,7 +247,7 @@ export default function Zaawansowane(){
                 </div>
                 </div>
                 <div className="flex flex-col w-1/3 items-center">
-                <p className="font-bold text-2xl">Loudness</p>
+                <p className="font-bold text-2xl">Głośność</p>
                 <div className="flex flex-row w-full h-1/3 justify-center">
                 <div className="w-1/3 bg-primary h-full rounded-full mr-4">
                     <input type="range"
@@ -302,7 +302,7 @@ export default function Zaawansowane(){
             </div>
             <div className="flex flex-row w-full justify-center h-1/6">
                 <div className="flex flex-col w-1/3 mr-4 items-center">
-                <p className="font-bold text-2xl">Speechiness</p>
+                <p className="font-bold text-2xl">Wokalność</p>
                 <div className="flex flex-row w-full h-1/3 justify-center">
                 <div className="w-1/3 bg-primary h-full rounded-full mr-4">
                     <input type="range"
@@ -357,7 +357,7 @@ export default function Zaawansowane(){
 
                
                 <div className="flex flex-col w-1/3 mr-4 items-center">
-                <p className="font-bold text-2xl">Acousticness</p>
+                <p className="font-bold text-2xl">Muzyka akustyczna</p>
                 <div className="flex flex-row w-full h-1/3 justify-center">
                 <div className="w-1/3 bg-primary h-full rounded-full mr-4">
                     <input type="range"
@@ -410,7 +410,7 @@ export default function Zaawansowane(){
                 </div>
                 </div>
                 <div className="flex flex-col w-1/3 items-center">
-                <p className="font-bold text-2xl">Instrumentalness</p>
+                <p className="font-bold text-2xl">Muzyka instrumentalna</p>
                 <div className="flex flex-row w-full h-1/3 justify-center">
                 <div className="w-1/3 bg-primary h-full rounded-full mr-4">
                     <input type="range"
@@ -465,7 +465,7 @@ export default function Zaawansowane(){
             </div>
             <div className="flex flex-row w-full justify-center h-1/6">
                 <div className="flex flex-col w-1/3 mr-4 items-center">
-                <p className="font-bold text-2xl">Liveness</p>
+                <p className="font-bold text-2xl">Nagranie na żywo</p>
                 <div className="flex flex-row w-full h-1/3 justify-center">
                 <div className="w-1/3 bg-primary h-full rounded-full mr-4">
                     <input type="range"
@@ -518,7 +518,7 @@ export default function Zaawansowane(){
                 </div>
                 </div>
                 <div className="flex flex-col w-1/3 mr-4 items-center">
-                <p className="font-bold text-2xl">Valence</p>
+                <p className="font-bold text-2xl">Pozytywność</p>
                 <div className="flex flex-row w-full h-1/3 justify-center">
                 <div className="w-1/3 bg-primary h-full rounded-full mr-4">
                     <input type="range"
@@ -571,7 +571,7 @@ export default function Zaawansowane(){
                 </div>
                 </div>
                 <div className="w-1/3 flex flex-col items-center m-0">
-                <p className="font-bold text-2xl">Genre</p>
+                <p className="font-bold text-2xl">Gatunek</p>
                 <select name="genre" className="appearance-none  bg-primary h-1/2 rounded-full text-xl" value={formValues.genre[0]}  onChange={(e) => setFormValues({ ...formValues, genre: [e.target.value] })}>
                 {genres.map((item: any) => (
                         <option value={item} className="bg-primary text-center ">{item}</option>
