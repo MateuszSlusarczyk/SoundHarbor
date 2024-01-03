@@ -605,13 +605,14 @@ else{
             </div>
         </div>
          ))}
-         <button onClick={exportPlaylist}>Zapisz</button>
-         {response2 == null
+          {response2 == null
             ? <></>
             : response2.error
               ? <p className="font-bold">Błąd podczas dodawania playlisty</p>
               : <p className="font-bold">Poprawnie dodano playliste</p>
           }
+         <button onClick={exportPlaylist}>Zapisz</button>
+        
       </div>
         </div>
     )
