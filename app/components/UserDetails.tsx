@@ -10,14 +10,10 @@ export default function UserDetails() {
             const res = await fetch('/api/userInfo');
             const userData = await res.json();
             setUser(userData);
-            if(userData){
-            await update({userId:User.id})
-            console.log(session)
-            console.log(session?.userId)
-            }
-            else{
-                console.log("brak usera")
-            }
+            
+            await update({userId:User.id}
+            
+            
         }
         catch (error) {
             console.error('Error fetching user details:', error);
@@ -35,7 +31,7 @@ export default function UserDetails() {
         )
     }
     else{
-        console.log(session?.userId)
+        
     return (
         
         <div className=" top-10 h-full w-full ">
