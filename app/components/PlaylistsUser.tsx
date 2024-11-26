@@ -74,7 +74,13 @@ export default function Playlist() {
       {tracks.map((item: any) => (
         <div className='overflow-scroll h-full min-w-1/6 flex flex-col items-center  bg-primary no-scrollbar p-1 pb-2 rounded-md mr-2 hover:bg-gradient-to-t from-quaternary from-0%  to-primary to-30% transition-all duration-500' data-value={item.id} onClick={PassPlaylist}>
           <div className='h-3/4 flex justify-center items-center'>
-            <Image src={item.images[0]?.url} width="100" height="100" alt="playlista" className='rounded-md' />
+           {item.images && item.images[0] ? (
+              <Image src={item.images[0].url} width="100" height="100" alt="playlista" className='rounded-md' />
+            ) : (
+              <div className="w-[200px] h-[200px] bg-gray-300 rounded-md flex items-center justify-center">
+                <p>Brak Okładki</p>
+              </div>
+            )}
           </div>
           <div className='h-1/4 items-center justify-center'>
             <p className='font-bold text-md'>{item.name}</p>
