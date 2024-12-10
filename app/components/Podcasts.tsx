@@ -31,7 +31,7 @@ const {data:session, update}=useSession()
       <p className='font-bold w-full flex justify-center'>Twoje Podcasty</p>
       <div className='flex flex-row h-full overflow-x-scroll '> 
       {list.map((item: any) => (
-        <div key={item.show.id} className='overflow-scroll h-full min-w-1/6 flex flex-col items-center  bg-primary no-scrollbar p-1 pb-2 rounded-md mr-2 hover:bg-gradient-to-t from-quaternary from-0%  to-primary to-30% transition-all duration-500'data-value={item.show.id} onClick={PassPodcast}>
+        <div key={item.show.id} className='overflow-scroll h-full min-w-1/3 md:min-w-1/6 flex flex-col items-center  bg-primary no-scrollbar p-1 pb-2 rounded-md mr-2 hover:bg-gradient-to-t from-quaternary from-0%  to-primary to-30% transition-all duration-500'data-value={item.show.id} onClick={PassPodcast}>
           <div className='h-3/4 flex justify-center items-center'>
             <Image src={item.show.images[0].url} width="100" height="100" alt="Podcast Okładka" className='rounded-md' />
           </div>

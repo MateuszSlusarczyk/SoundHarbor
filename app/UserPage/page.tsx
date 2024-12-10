@@ -1,12 +1,14 @@
 "use client"
 import Navbar from '../components/Navbar'
-import Menu from '../components/Menu'
 import Playlists from '../components/PlaylistsUser';
 import UserDetails from '../components/UserDetails';
 import Podcast from '../components/Podcasts';
+import NotAvailable from '../components/NotAvailable';
+import { useState } from 'react';
 
 
 function MainPage() {
+  const [showError, setShowError] = useState(false);
 
   return (
     <div className='h-full w-full flex font-sans' >

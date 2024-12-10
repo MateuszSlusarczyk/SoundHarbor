@@ -22,13 +22,13 @@ export default function Navbar(){
         
     }
     return(
-        <div className='bg-primary flex w-full h-10 justify-end right-0 p-1'>
+        <div className='bg-primary flex w-full h-10 justify-end right-0 p-1 text-sm md:text-lg'>
         <nav className=" bg-senary rounded-md w-full h-full font-bold">
             <ul className="flex justify-center items-center h-full ">
                 <li className='w-3/12 flex h-full rounded-md justify-center items-center hover:bg-tertiary hover:shadow-lg hover:shadow-tertiary transition duration-500 '>  <Link href="/MainPage" className='flex w-full justify-center items-center'>Strona Główna</Link></li>
                 <li className={`w-3/12 h-full flex flex-col rounded-md justify-start items-center hover:bg-tertiary hover:shadow-lg hover:shadow-tertiary transition duration-500  `}>
                 <div className={`flex justify-center items-center ${isSubMenu2Open ? 'h-8' : 'h-full'}`}>
-                    <Link href="/" className='flex w-full justify-center items-center'>Rekomendacje</Link>
+                    <Link href="/Podstawowe" className='flex w-full justify-center items-center'>Rekomendacje</Link>
                     <button onClick={ExpandMenu2} className='w-auto'>
                             <Image src={Rozwin} alt="Rozwin" className={` ${isSubMenu2Open ? 'rotate-90' : ''}`} style={{ transition: 'all 1s' }}  />
                     </button>

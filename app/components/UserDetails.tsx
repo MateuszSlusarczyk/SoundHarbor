@@ -10,10 +10,14 @@ export default function UserDetails() {
             const res = await fetch('/api/userInfo');
             const userData = await res.json();
             setUser(userData);
-            
-            await update({userId:User.id}
-            
-            
+            if(userData){
+            await update({userId:User.id})
+            console.log(session)
+            console.log(session?.userId)
+            }
+            else{
+                console.log("brak usera")
+            }
         }
         catch (error) {
             console.error('Error fetching user details:', error);
@@ -31,12 +35,12 @@ export default function UserDetails() {
         )
     }
     else{
-        
+       
     return (
         
         <div className=" top-10 h-full w-full ">
             <div className="flex flex-row items-start justify-start h-full w-full p-2"> 
-            <Image src={User.images[1]?.url} width="300" height="0" alt="playlista" className='rounded-md m-1 min-h-full min-w-1/6' />
+            <Image src={User.images[0]?.url} width="300" height="0" alt="playlista" className='rounded-md m-1 min-h-full min-w-1/6' />
             <div className='flex flex-col'>
             <p><span className='font-bold'>Login:</span> {User.display_name}</p>
             <p><span className='font-bold'>Kraj:</span> {User.country}</p>

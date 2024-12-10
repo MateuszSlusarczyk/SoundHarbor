@@ -1,12 +1,14 @@
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { useSession } from "next-auth/react";
+import NotAvailable from './NotAvailable';
 export default function PodcastInfo() {
   const {data:session, update}=useSession()
   const [playlist, setPlaylist] = useState<any>(null);
   const [tracks, setTracks] = useState<any>([]);
   const [error, setError] = useState<any>(false);
   const [correct, setCorrect] = useState<any>(false);
+  const [showError, setShowError] = useState(false);
   const getPlaylistDetails = async () => {
     try {
       const res = await fetch('/api/playlistInfo');
@@ -24,7 +26,6 @@ export default function PodcastInfo() {
       const trackData = await res.json();
       setTracks(trackData);
       
-      console.log(trackData )
       
     }
     catch (error) {
@@ -38,50 +39,51 @@ export default function PodcastInfo() {
     else
     {  
       await update({trackId:e.currentTarget.getAttribute("data-value")})
-      window.location.href = "/TrackInfo";
+      // window.location.href = "/TrackInfo";
+      setShowError(true)
     }
     
   };
   const ExpandPlaylist = async (e:any) => {
-    if(session===null){
-      throw new Error("Błąd dostępu do playlisty")
-    }
-    else
-    {  
-      var trackIds = ""
-      var rand = 0
-      for(var i:number = 0; i < 5; i++){
-         rand = Math.floor(Math.random() * tracks.length)
-         trackIds = trackIds + tracks[rand].track.id + ","
-      }
-      if(trackIds.length > 0){
-        try{
-        const res = await fetch('/api/playlistExpand', {
-          method: "POST",
-          body: JSON.stringify({
-            trackIds: trackIds,
-          }),
-        });
+    setShowError(true)
+    // if(session===null){
+    //   throw new Error("Błąd dostępu do playlisty")
+    // }
+    // else
+    // {  
+    //   var trackIds = ""
+    //   var rand = 0
+    //   for(var i:number = 0; i < 5; i++){
+    //      rand = Math.floor(Math.random() * tracks.length)
+    //      trackIds = trackIds + tracks[rand].track.id + ","
+    //   }
+    //   if(trackIds.length > 0){
+    //     try{
+    //     const res = await fetch('/api/playlistExpand', {
+    //       method: "POST",
+    //       body: JSON.stringify({
+    //         trackIds: trackIds,
+    //       }),
+    //     });
 
         
-        console.log(res)
-        if(res.status === 500){
-          setError(true);
-          setCorrect(false);
-        }
-        else{
-          setError(false);
-          setCorrect(true);
-        }
-      }
-      catch (error) {
-        console.error('Error fetching playlist details:', error);
-      }
-      }
+        
+    //     if(res.status === 500){
+    //       setError(true);
+    //       setCorrect(false);
+    //     }
+    //     else{
+    //       setError(false);
+    //       setCorrect(true);
+    //     }
+    //   }
+    //   catch (error) {
+    //     console.error('Error fetching playlist details:', error);
+    //   }
+    //   }
       
  
-    }
-    
+    // }
   }
   useEffect(() => {
     getPlaylistDetails();
@@ -96,13 +98,14 @@ export default function PodcastInfo() {
     );}
   return (
     <div className='absolute top-10 z-0 h-screen p-4 w-full'>
-      <div className='w-full h-1/5 bg-primary rounded-md p-2 mb-4 flex'>
+      {showError && <NotAvailable setShowError={setShowError}/>}
+      <div className='w-full h-1/5 bg-primary rounded-md p-2 mb-4 flex overflow-scroll'>
       <Image src={playlist?.images[0]?.url} width="125" height="125" alt="playlista" className='rounded-md h-36 mr-6 relative z-10' />
       <Image src={playlist?.images[0]?.url} width="145" height="145" alt="playlista" className='rounded-md h-36 mr-6 absolute z-0 blur-md' />
         <div className="flex flex-col items-start w-1/3 ">
         <p className='font-bold text-center '>{playlist.name}</p>
         <p>{playlist.description}</p>
-        <button className='w-1/3 h-1/4 bg-secondary rounded-md font-bold text-sm hover:bg-tertiary hover:h-1/3 hover:mt-2 hover:text-base hover:w-1/2 transition-all duration-500' onClick={ExpandPlaylist}>Rozszerz playliste</button>
+        <button className='md:w-1/3 md:h-1/4 w-full bg-secondary rounded-md font-bold text-sm hover:bg-tertiary hover:h-1/3 hover:mt-2 hover:text-base hover:w-1/2 transition-all duration-500' onClick={ExpandPlaylist}>Rozszerz playliste</button>
         {error !=false 
         ? <p className='font-bold'>Nie możesz rozszerzyć playlisty, której nie jesteś właścicielem.</p>
           : correct !=false 
